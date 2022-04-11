@@ -58,11 +58,11 @@ return string.toUpperCase()
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
 
-    return string.replace(/[" "]/g,"-");
+    return string.replace(/[" "]/g,"-").toLowerCase;
 
     // YOUR CODE ABOVE HERE //
 }
-console.log(toDashCase("Hello World!"));
+console.log(toDashCase("Hello World"));
 /**
  * Given an input String and a single character, return true if the String
  * begins with the character, false otherwise. The Function is case insensitive.
@@ -103,11 +103,15 @@ console.log(beginsWith("Now", "n"));
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
 
-
+    if (string[string.length - 1].toLowerCase() === char.toLowerCase()) {
+        return true;
+    } else {
+        return false;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
-
+console.log(endsWith("Now", "w"));
 /**
  * Given two input Strings, return the Strings concatenated into one.
  *
@@ -115,7 +119,7 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    return stringOne + stringTwo;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -134,7 +138,7 @@ function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
 
-
+return 
     // YOUR CODE ABOVE HERE //
 }
 
