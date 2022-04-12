@@ -139,6 +139,7 @@ function join(stringOne, stringTwo) {
     var args = Array.from(arguments);
 
 
+
     // YOUR CODE ABOVE HERE //
 }
 
@@ -174,12 +175,18 @@ longest('ben', 'maggie')
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+if (stringOne < stringTwo) {
+    return 1
+} else if (stringOne > stringTwo) {
+    return -1
+} else {
+    return 0
+}
 
 
     // YOUR CODE ABOVE HERE //
 }
-
+sortAscending('a', 'b')
 
 /**
  * Given two Strings, return 1 if the first is lower in alphabetical order than
@@ -191,12 +198,19 @@ function sortAscending(stringOne, stringTwo) {
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    if (stringOne > stringTwo) {
+        return 1
+    } else if (stringOne < stringTwo) {
+        return -1
+    } else {
+        return 0
+    }
+    
 
 
     // YOUR CODE ABOVE HERE //
 }
-
+sortDescending('a', 'b')
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
