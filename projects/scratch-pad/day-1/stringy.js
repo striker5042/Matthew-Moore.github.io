@@ -58,7 +58,7 @@ return string.toUpperCase()
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
 
-    return string.replace(/[" "]/g,"-").toLowerCase;
+    return string.replace(/[" "]/g,"-").toLowerCase();
 
     // YOUR CODE ABOVE HERE //
 }
@@ -153,11 +153,17 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+    
+   if (stringOne.length > stringTwo.length) {
+       return stringOne
+   } else if (stringOne.length < stringTwo.length) {
+       return stringTwo
+   }
 
     // YOUR CODE ABOVE HERE //
 }
+longest('ben', 'maggie')
+
 
 /**
  * Given two Strings, return 1 if the first is higher in alphabetical order than
