@@ -116,14 +116,11 @@ return Object.keys(object).length
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
   
-var myArr = []
-
-  for (var i = object.length; i >= 0; i--) {
-    myArr.push(object)
-    console.log(myArr[i])
+  var valuesArr = Object.values(object)
+  for (var i = valuesArr.length - 1; i >= 0; i--) {
+    console.log(valuesArr[i])
   }
-  
-  
+
   // YOUR CODE ABOVE HERE //
 }
 
