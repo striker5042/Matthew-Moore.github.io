@@ -12,6 +12,8 @@
  */
 function printArrayValues(array) {
   // YOUR CODE BELOW HERE //
+  //iterate through array with for loop with array.length
+  // console log array with index in brackets after curly braces in the loop
   
   for (var i = 0; i < array.length; i++) {
     console.log(array[i]);
