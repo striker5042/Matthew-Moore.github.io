@@ -15,7 +15,9 @@
 function isArray(value) {
     // YOUR CODE BELOW HERE //
     
-    
+    typeof(value)
+
+
     
     
     // YOUR CODE ABOVE HERE //

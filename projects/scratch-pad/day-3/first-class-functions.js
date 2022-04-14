@@ -71,7 +71,7 @@ function createEndsWithFilter(endsWith) {
     
     
     return function(string) {
-        return string[0].toUpperCase() === endsWith.toUpperCase()
+        return string[0] === endsWith.toLowerCase()
     }
     
     // YOUR CODE ABOVE HERE //
