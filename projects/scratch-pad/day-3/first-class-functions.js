@@ -71,7 +71,7 @@ function createEndsWithFilter(endsWith) {
     
     
     return function(string) {
-        return string[0] === endsWith.toLowerCase()
+        return string[string.length -1].toLowerCase() === endsWith.toLowerCase()
     }
     
     // YOUR CODE ABOVE HERE //
@@ -87,7 +87,17 @@ function createEndsWithFilter(endsWith) {
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
     
-    
+    var arr = [];
+
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] > 5) {
+        arr.push(array[i])
+      }
+    }
+    return arr;
+  
+  
+  
     
     
     // YOUR CODE ABOVE HERE //
