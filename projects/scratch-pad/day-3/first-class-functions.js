@@ -89,9 +89,9 @@ function modifyStrings(strings, modify) {
     
     var arr = [];
 
-    for (var i = 0; i < array.length; i++) {
+    for (var i = 0; i < strings.length; i++) {
       if (array[i] > 5) {
-        arr.push(array[i])
+        arr.push(strings[i])
       }
     }
     return arr;
