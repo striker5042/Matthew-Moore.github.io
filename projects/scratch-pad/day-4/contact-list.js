@@ -65,41 +65,32 @@ function makeContactList() {
         },
 
         findContact: function(fullName) {
-           /* findContact(fullName): takes a full-name String, like 'Max Gaudin', and 
-            *         returns the contact object if found in the contacts-list, or, 
-            *         undefined if the fullName does not match any contacts in the list.  
-*/
-fullName = 'Matt Moore'
-fullName.split()
-
-
-
-for (var i = 0; i < contacts.length; i++) {
-    if (fullName === Object.values(contacts[i]).includes(string1)) {
-        return contacts
-    } else {
-        return undefined
-    }
-}
-
-            /*if (fullName === contacts) {
-                return contacts
-            } else {
-               return undefined 
-            }*/
-        }
+            for (var i = 0; i < contacts.length; i++) {
+                if (fullName === contacts[i].nameFirst + ' ' + contacts[i].nameLast) {
+                    return contacts[i]
+                } else {
+                    return undefined
+                }
+            }
+        },
         
+        removeContact: function(contact){
+            return contacts.splice(contact, 1)
+        },
+
+        printAllContactNames: function() {
+            var arr = [];
+            for (var i = 0; i < contacts.length; i++) {
+                arr.push(contacts[i].nameFirst + ' ' + contacts[i].nameLast)
+            }
+            return arr.join('\n');
+        }
+         
+
+
     }
-    function printAllContactNames() {
-        contacts.printAllContactNames()
-    }
-} 
-
-
-
-
 // YOUR CODE GOES ABOVE HERE //
-
+}
 
 
 
