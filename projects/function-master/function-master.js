@@ -3,15 +3,23 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-
-} 
+var arr = [];
+for (var key in object) {
+    arr.push(object[key]);
+}
+return arr;
+}
 
 //////////////////////////////////////////////////////////////////////
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+var arr = [];
+for (var key in object) {
+    arr.push(key);
+}
+return arr.join(' ')
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +27,13 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
+    var arr = [];
+for (var key in object) {
+    if (typeof object[key] === 'string') 
+        arr.push(object[key]);
+}
     
+return arr.join(' ')
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +41,13 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+
+  if (Array.isArray(collection)) {
+      return 'array';
+  } else {
+      return 'object';
+  }
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -35,7 +55,9 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+
+  return string[0].toUpperCase() + string.substr(1);
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -43,14 +65,21 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+    var words = string.split(' ');
+    for (var i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    }
+    return words.join(' ');
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
+  var str = object.name;
+ return 'Welcome ' + str[0].toUpperCase() + str.substring(1) + '!';
 
 }
 
@@ -59,6 +88,9 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+var name = object.name;
+var species = object.species;
+return capitalizeWord(name) + ' is a ' + capitalizeWord(species);
 
 }
 
@@ -67,6 +99,12 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
+
+if (object.noises === undefined) {
+    return 'there are no noises'
+} else {
+    return object.noises.join(' ');
+}
 
 }
 
