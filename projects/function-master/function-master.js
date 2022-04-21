@@ -149,7 +149,15 @@ return true;
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+var notFriend = [];
+for (var i = 0; i < array.length; i++) {
+    if (array[i].name !== name) {
+       if (!isFriend(name, array[i])) {
+           notFriend.push(array[i].name)
+       } 
+    }
+}
+ return notFriend;
 }
 
 //////////////////////////////////////////////////////////////////////
