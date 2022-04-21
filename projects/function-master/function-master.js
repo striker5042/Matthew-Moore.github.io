@@ -100,7 +100,7 @@ return capitalizeWord(name) + ' is a ' + capitalizeWord(species);
 
 function maybeNoises(object) {
 
-if (object.noises === undefined) {
+if (object.noises === undefined || object.noises.length === 0) {
     return 'there are no noises'
 } else {
     return object.noises.join(' ');
@@ -114,6 +114,13 @@ if (object.noises === undefined) {
 
 function hasWord(string, word) {
 
+var str = string.split(' ');
+for (var i = 0; i < str.length; i++) {
+    if (word === str[i]) {
+        return true;
+    }
+}
+return false;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -121,7 +128,8 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+object.friends.push(name);
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -130,6 +138,10 @@ function addFriend (name, object) {
 
 function isFriend(name, object) {
 
+if (object.friends === undefined || object.friends.indexOf(name) === -1) {
+    return false;
+}
+return true;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -145,7 +157,8 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+object[key] = value;
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -153,7 +166,11 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+for (var key in object) {
+    if (array.indexOf(key) !== -1) {
+        delete object[key];
+    }
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -161,7 +178,14 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+var newArr = [];
+for (var i = 0; i < array.length; i++) {
+    var item = array[i];
+    if (newArr.indexOf(item) === -1) {
+        newArr.push(item);
+    }
+}
+return newArr;
 }
 
 //////////////////////////////////////////////////////////////////////
