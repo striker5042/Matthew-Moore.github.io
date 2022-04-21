@@ -47,9 +47,23 @@ function fizzBuzz(x, y) {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
+function drawChessboard(size) {
 
-  
+var space = ' ';
+var str = '';
+for (var n = 1; n <= (size * size); n++) {
+  str += space;
+  if (n % size == 0) {
+    str += '\n';
+    if (size % 2 == 1) {
+      space = (space == ' ')? '#': ' ';
+    }
+  }
+  else {
+    space = (space == ' ')? '#': ' ';
+  }
+}
+console.log(str)
 
 }
 
