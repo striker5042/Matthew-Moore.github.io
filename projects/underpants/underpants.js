@@ -154,13 +154,13 @@ return arr.reverse()
 
 _.indexOf = function(array, value) {
 
-for (var i = 0; i < array.length; i++) {
+for (var i = 0; i < array.length - 1; i++) {
     if (value === array[i]){
         return i;
   } 
 
 }
-
+return -1
 }
 
 /** _.contains
@@ -181,14 +181,17 @@ for (var i = 0; i < array.length; i++) {
 
 _.contains = function(array, value) {
 
-if (array === value) {
+for(var i = 0; i < array.length; i++) {
+
+if (array[i] === value) {
     return true;
-} else {
-    return false
-}
 
 }
 
+}
+
+return false
+}
 /** _.each
 * Arguments:
 *   1) A collection
@@ -206,12 +209,26 @@ if (array === value) {
 */
 
 
-_.each = function(collect) {
+_.each = function(collect, func) {
+
+if (Array.isArray(collect)) {
+    var result = [];
+    for (var i = 0; i < collect.length; i++) {
+    result.push(func(collect[i], i, collect));
+
+} 
 
 
+} else {
+    for (var key in collect) {
+       func(collect[key], key, collect);
+    }
+}
+
+return result;
 
 }
- 
+
 /** _.unique
 * Arguments:
 *   1) An array
@@ -222,6 +239,17 @@ _.each = function(collect) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+
+_.unique = function(array) {
+    var arr = [];
+    for (var i = 0; i < array.length; i++) {
+    if (_.indexOf(array, array[i]) === i) {
+        arr.push(array[i]);
+    }
+    }
+    return arr;
+    }
+    
 
 /** _.filter
 * Arguments:
@@ -240,6 +268,16 @@ _.each = function(collect) {
 */
 
 
+_.filter = function(array, func) {
+var result = []
+for (var i = 0; i < array.length; i++) {
+    if (func(array[i], i, array) === true) {
+        result.push(array[i])
+    }
+}
+return result
+}
+
 /** _.reject
 * Arguments:
 *   1) An array
@@ -252,6 +290,8 @@ _.each = function(collect) {
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+
 
 
 /** _.partition
