@@ -157,11 +157,11 @@ _.indexOf = function(array, value) {
 for (var i = 0; i < array.length; i++) {
     if (value === array[i]){
         return i;
-    }
-} 
+  } 
 
 }
 
+}
 
 /** _.contains
 * Arguments:
@@ -178,6 +178,16 @@ for (var i = 0; i < array.length; i++) {
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+
+_.contains = function(array, value) {
+
+if (array === value) {
+    return true;
+} else {
+    return false
+}
+
+}
 
 /** _.each
 * Arguments:
@@ -196,6 +206,12 @@ for (var i = 0; i < array.length; i++) {
 */
 
 
+_.each = function(collect) {
+
+
+
+}
+ 
 /** _.unique
 * Arguments:
 *   1) An array
