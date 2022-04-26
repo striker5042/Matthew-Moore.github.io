@@ -357,6 +357,20 @@ _.partition = function(array,func) {
 */
 
 
+_.map = function(collect, func) {
+var result = [];
+if (Array.isArray(collect) === true) {
+    for ( var i = 0; i < collect.length; i++) {
+        result.push(func(collect[i], i, collect));
+    }
+} else {
+    for (var key in collect) {
+        result.push(func(collect[key], key, collect))
+    }
+}
+    return result;
+}
+
 /** _.pluck
 * Arguments:
 *   1) An array of objects
@@ -367,6 +381,20 @@ _.partition = function(array,func) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+
+_.pluck = function(array, prop) {
+
+for (var i = 0; i < array.length; i++) {
+_.map(array[i], function(array, prop){
+    
+})
+
+}
+
+
+}
+
 
 
 /** _.every
