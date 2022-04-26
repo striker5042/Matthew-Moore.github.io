@@ -292,7 +292,15 @@ return result
 */
 
 
-
+_.reject = function(array, func) {
+var result = []
+for (var i = 0; i < array.length; i++) {
+    if (func(array[i], i, array) === false) {
+        result.push(array[i])
+    }
+}
+return result
+}
 
 /** _.partition
 * Arguments:
@@ -312,6 +320,24 @@ return result
 *   }); -> [[2,4],[1,3,5]]
 }
 */
+
+
+_.partition = function(array,func) {
+
+   let output = [];
+    var truthy = [];
+    var falsy = [];
+    for(let i = 0; i < array.length; i++){
+        if(func(array[i], i, array)){
+           truthy.push(array[i]);
+        } else if(!func(array[i], i, array)){
+            falsy.push(array[i]);
+        }
+    }
+    output.push(truthy);
+    output.push(falsy);
+    return output;
+}
 
 
 /** _.map
