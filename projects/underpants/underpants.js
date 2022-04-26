@@ -370,7 +370,6 @@ if (Array.isArray(collect) === true) {
 }
     return result;
 }
-
 /** _.pluck
 * Arguments:
 *   1) An array of objects
@@ -385,18 +384,11 @@ if (Array.isArray(collect) === true) {
 
 _.pluck = function(array, prop) {
 
-for (var i = 0; i < array.length; i++) {
-_.map(array[i], function(array, prop){
-    
-})
+return _.map(array, function(element) {
+    return element[prop];
+});
 
-}
-
-
-}
-
-
-
+};
 /** _.every
 * Arguments:
 *   1) A collection
@@ -418,6 +410,32 @@ _.map(array[i], function(array, prop){
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function(collect, func) {
+
+if (typeof func !== 'function') {
+    for (var i = 0; i < collect.length; i++) {
+        if (collect[i] === false) {
+            return false
+        }
+    }
+
+    return true;    
+} else if (Array.isArray(collect.length)) {
+    for (let i = 0; i < collect.length; i++) {
+        if (func(collect[i], i, collect) !== true) {
+            return false
+        }
+    }
+} else {
+    for (var key in collect) {
+        if (func(collect[key], key, collect) === false) {
+            return false;
+        } 
+    }
+     return true;
+} 
+
+}
 
 /** _.some
 * Arguments:
@@ -441,6 +459,35 @@ _.map(array[i], function(array, prop){
 */
 
 
+_.some = function(collect, func) {
+
+if (typeof func !== 'function') {
+    for (var i = 0; i < collect.length; i++) {
+        if (collect[i] === true) {
+            return true
+        }
+    }
+
+    return false;    
+} else if (Array.isArray(collect.length)) {
+    for (let i = 0; i < collect.length; i++) {
+        if (func(collect[i], i, collect) !== false) {
+            return true
+        }
+    }
+} else {
+    for (var key in collect) {
+        if (func(collect[key], key, collect) === true) {
+            return true;
+        } 
+    }
+     return false;
+} 
+
+}
+
+
+
 /** _.reduce
 * Arguments:
 *   1) An array
@@ -461,6 +508,12 @@ _.map(array[i], function(array, prop){
 */
 
 
+_.reduce = function() {
+
+
+
+}
+
 /** _.extend
 * Arguments:
 *   1) An Object
@@ -475,6 +528,13 @@ _.map(array[i], function(array, prop){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+
+_.extend = function () {
+
+
+    
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
