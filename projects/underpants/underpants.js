@@ -508,10 +508,15 @@ if (typeof func !== 'function') {
 */
 
 
-_.reduce = function() {
-
-
-
+_.reduce = function(array, func, seed) {
+    _.each (array, function(value, index, collection){
+        if (seed === undefined || seed === null) {
+            seed = value;
+        } else {
+            seed = func(seed, value, index, collection);
+        }
+    });
+ return seed;
 }
 
 /** _.extend
@@ -532,8 +537,13 @@ _.reduce = function() {
 
 _.extend = function () {
 
+var args = arguments;
+for (var i = 0; i < args.length; i++) {
+  Object.assign(args[0], args[i])  
+}
 
-    
+return args[0]
+
 }
 
 //////////////////////////////////////////////////////////////////////
