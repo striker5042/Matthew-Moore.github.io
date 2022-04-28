@@ -29,7 +29,7 @@ if (element.gender === 'male') {
     return false;
 }
 });
-return males;
+return males.length;
 };
 
 var femaleCount = function(array) {
@@ -57,19 +57,46 @@ return oldest.name;
 
 
 
-var youngestCustomer;
+var youngestCustomer = function(array) {
+let youngest = _.reduce(array, function(accumulator, current, index, collection) {
 
-var averageBalance;
+if (current.age < accumulator.age) {
+accumulator = current;
 
-var firstLetterCount;
+}
+return accumulator;
+}) 
+return youngest.name;
+};
 
-var friendFirstLetterCount;
 
-var friendsCount;
+var averageBalance = function(array) {
 
-var topThreeTags;
+let average = _.reduce(array, function(accumulator, current, index, collection) {
 
-var genderCount;
+
+}, 0)
+
+};
+var firstLetterCount = function() {
+
+};
+
+var friendFirstLetterCount = function() {
+
+};
+
+var friendsCount = function() {
+
+};
+
+var topThreeTags = function() {
+    
+};
+
+var genderCount = function(array) {
+
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
