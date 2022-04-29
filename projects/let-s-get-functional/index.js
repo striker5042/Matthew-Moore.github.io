@@ -90,12 +90,23 @@ let firstLetter = _.filter(array, function(element) {
 
 
 
-var friendFirstLetterCount = function() {
+var friendFirstLetterCount = function(array, customer, letter) {
 
-
+let firstLetterFriend = _.filter (array, function(element) {
+    return element.name.friends[0].toUpperCase() === letter.toUpperCase()
+})
+return firstLetterFriend.length
 };
 
-var friendsCount = function() {
+
+
+var friendsCount = function(array, name) {
+
+var FC = _.filter(array, function(element) {
+    element.friends = filter(element.friends, function(ele) {
+        ele.name === name
+    })
+})
 
 };
 
