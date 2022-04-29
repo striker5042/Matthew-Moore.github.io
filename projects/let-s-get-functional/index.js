@@ -104,7 +104,7 @@ var z = 0;
 let names = _.filter(array, function(element) {
     return element.name === customer
 })
-let friendz = map(names[0].friends, function(ele, i) {
+let friendz = _.map(names[0].friends, function(ele, i) {
     if (ele.name[0].toUpperCase() === letter.toUpperCase()) {
         z++
     }
@@ -116,11 +116,14 @@ let friendz = map(names[0].friends, function(ele, i) {
 
 var friendsCount = function(array, name) {
 
-var FC = _.filter(array, function(element) {
-    element.friends = filter(element.friends, function(ele) {
-        ele.name === name
-    })
-})
+    var result = _.filter(array, function(customerObj) {
+        for(var i = 0; i < customerObj.friends.length; i++) {
+            if (customerObj.friends[i].name === name) {
+                return customerObj;
+            }
+        }
+    });
+    return _.pluck(result, "name");
 
 };
 

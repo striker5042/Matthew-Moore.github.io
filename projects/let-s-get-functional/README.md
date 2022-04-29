@@ -75,7 +75,7 @@ const _ = require('lodown-oliviasaborush');
  - **Objective**: Find the customers' names that have a given customer's name in their friends list
  - **Input**: `Array`, `Name`
  - **Output**: `Array`
- - **Constraints**:
+ - **Constraints**: 
 
 ### 9: `topThreeTags`
  - **Objective**: Find the three most common tags among all customers' associated tags
