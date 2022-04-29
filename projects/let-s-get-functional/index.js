@@ -72,17 +72,26 @@ return youngest.name;
 
 var averageBalance = function(array) {
 
-let average = _.reduce(array, function(accumulator, current, index, collection) {
+let average = _.reduce (array, (total, current) => total +
+Number(current.balance.replace(/[$,] +/g, '')), 0)
 
+var num = parseFloat(average) + .05;
 
-}, 0)
+let len = array.length + 1
 
 };
-var firstLetterCount = function() {
+var firstLetterCount = function(array, letter) {
 
+let firstLetter = _.filter(array, function(element) {
+    return element.name[0].toUpperCase() === letter.toUpperCase()
+})
+    return firstLetter.length
 };
+
+
 
 var friendFirstLetterCount = function() {
+
 
 };
 
@@ -91,10 +100,20 @@ var friendsCount = function() {
 };
 
 var topThreeTags = function() {
-    
+
 };
 
 var genderCount = function(array) {
+
+ let multiGender = _.reduce (array, function(accumulator, current, index, collection) {
+        var obj = {};
+        
+        if (current.gender === 'male' && current.gender === 'female') {
+            accumulator += 1;
+        }
+    return accumulator;
+    }, 0)
+    return multiGender;
 
 };
 
