@@ -86,7 +86,7 @@ return avg;
 
 };
 
-averageBalance(customers)
+
 
 var firstLetterCount = function(array, letter) {
 
@@ -100,17 +100,16 @@ let firstLetter = _.filter(array, function(element) {
 
 var friendFirstLetterCount = function(array, customer, letter) {
 
-for (var i = 0; i < array.length; i++) {
-    if (array[i].name === customer) {
-        let friendLetter = _.filter(array[i].friends, function(value) {
-            return 
-        })
-        return friendLetter 
+var z = 0; 
+let names = _.filter(array, function(element) {
+    return element.name === customer
+})
+let friendz = map(names[0].friends, function(ele, i) {
+    if (ele.name[0].toUpperCase() === letter.toUpperCase()) {
+        z++
     }
-    
-};
-
-
+})
+  return z;
 };
 
 
