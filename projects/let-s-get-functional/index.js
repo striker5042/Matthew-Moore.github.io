@@ -73,7 +73,7 @@ return youngest.name;
 var averageBalance = function(array) {
 
 var all = _.map(array, function(element) {
-    return Number(element.balance.replace(/[^0-9.-] + /g,""));
+    return Number(element.balance.replace(/[^0-9.-]+/g,""));
 })
 
 var toat = _.reduce(all, function(x, y) {
