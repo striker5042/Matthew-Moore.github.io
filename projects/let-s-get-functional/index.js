@@ -72,14 +72,22 @@ return youngest.name;
 
 var averageBalance = function(array) {
 
-let average = _.reduce (array, (total, current) => total +
-Number(current.balance.replace(/[$,] +/g, '')), 0)
+var all = _.map(array, function(element) {
+    return Number(element.balance.replace(/[^0-9.-] + /g,""));
+})
 
-var num = parseFloat(average) + .05;
+var toat = _.reduce(all, function(x, y) {
+    return x + y
+}, 0)
 
-let len = array.length + 1
+var avg = toat/all.length
+
+return avg;
 
 };
+
+averageBalance(customers)
+
 var firstLetterCount = function(array, letter) {
 
 let firstLetter = _.filter(array, function(element) {
@@ -92,10 +100,17 @@ let firstLetter = _.filter(array, function(element) {
 
 var friendFirstLetterCount = function(array, customer, letter) {
 
-let firstLetterFriend = _.filter (array, function(element) {
-    return element.name.friends[0].toUpperCase() === letter.toUpperCase()
-})
-return firstLetterFriend.length
+for (var i = 0; i < array.length; i++) {
+    if (array[i].name === customer) {
+        let friendLetter = _.filter(array[i].friends, function(value) {
+            return 
+        })
+        return friendLetter 
+    }
+    
+};
+
+
 };
 
 
