@@ -127,22 +127,78 @@ var friendsCount = function(array, name) {
 
 };
 
-var topThreeTags = function() {
+
+
+var topThreeTags = function(array) {
+
+    var myArray = [];
+    var topTags = [];
+    
+    
+    var tags = _.pluck(customers, "tags");
+    
+    var allTags = _.reduce(tags, function(acc, currTag) {
+        return acc.concat(currTag);
+    }).sort();
+    
+    var total = allTags.reduce(function(count, tag) {
+        count[tag] ? count[tag] = count[tag] + 1 : count[tag] = 1;
+        return count;
+    }, {});
+    
+   for(var key in total){
+       myArray.push([key, total[key]]);
+   }
+   var top = myArray.sort(function(acc, currTag) {
+       return currTag[1] - acc[1];
+   }).slice(0, 3);
+   
+   
+   _.filter(top, function(topTagArr) {
+       return topTagArr[0] ? topTags.push(topTagArr[0]) : null;
+   });
+   return topTags;
 
 };
 
+
+
 var genderCount = function(array) {
 
- let multiGender = _.reduce (array, function(accumulator, current, index, collection) {
-        var obj = {};
+ 
         
-        if (current.gender === 'male' && current.gender === 'female') {
+        
+    let maleGender = _.reduce (array, function(accumulator, current, index, collection) {
+        
+        
+        if (current.gender === 'male') {
             accumulator += 1;
-        }
+        } 
     return accumulator;
     }, 0)
-    return multiGender;
+    
+    
+  let femaleGender = _.reduce (array, function(accum, curr) {
 
+    if (curr.gender === 'female') {
+      accum += 1;
+    }
+     return accum;
+  }, 0)
+
+let nonBinary = _.reduce (array, function(a, c) {
+  if (c.gender === 'non-binary') {
+    a++
+  }
+  return a
+}, 0)
+  
+    var obj = {};
+    obj.male = maleGender
+    obj.female = femaleGender
+    obj['non-binary'] = nonBinary
+  return obj
+    
 };
 
 //////////////////////////////////////////////////////////////////////
