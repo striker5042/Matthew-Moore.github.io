@@ -142,10 +142,17 @@ return reverse(string.substr(1)) + string.charAt(0)
 };
 
 // 10. Write a function that determines if a string is a palindrome.
-var palindrome = function(string) {
-
-  
+var palindrome = function(string, output='') {
+  if( string.length <= 1){
+    return true;
+  }
+    if(string[0].toLowerCase() === string[string.length - 1].toLowerCase()){
+      return palindrome(string.slice(1, -1).trim())
+    }else {
+      return false;
+    }
 };
+    
 
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
@@ -158,7 +165,15 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
+
 var multiply = function(x, y) {
+  if (y === 0){
+    return 0;
+  }
+  if (y < 0) {
+    return -x + multiply(x, y + 1)
+  }
+  return x + multiply(x, y - 1)
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -180,27 +195,63 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+if(str1.length === 0 && str2.length === 0) {
+  return true
+}
+
+if (str1[0] === str2[0]) {
+  return compareStr(str1.slice(1), str2.slice(1));
+} else {
+  return false
+}
+
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str){
+var createArray = function(str, output=[]){
+if (str.length === 0) {
+return output;
+}
+output.push(str[0])
+return createArray(str.slice(1), output)
 };
 
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = function (array, output=[]) {
+if (array.length === 0) {
+  return output;
+}
+
+output.push(array[array.length - 1])
+return reverseArr(array.slice(0, -1), output)
+
 };
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length) {
+var buildList = function(value, length, output=[]) {
+if (length === 0) {
+  return output;
+}
+output.push(value);
+length--
+return buildList(value, length, output)
+
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = function(array, value, output=[]) {
+if (array.length === 0) {
+  return output;
+}
+output.push(value)
+
+return countOccurrence(array, value, output)
+
 };
 
 // 20. Write a recursive version of map.
